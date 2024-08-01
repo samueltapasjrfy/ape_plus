@@ -85,10 +85,16 @@ def extract_data(url, cookies, property_types):
         browser = p.chromium.launch(headless=False, args=["--disable-gpu"])
         page = browser.new_page()
 
-        page.goto(url, timeout=120000)
-        page.set_default_timeout(120000)
+        page.goto(url, timeout=200000)
+        page.set_default_timeout(200000)
         
-        page.wait_for_load_state('networkidle', timeout=120000)
+        try:
+            page.wait_for_load_state('networkidle', timeout=200000)
+            print("Dados do imóvel carregados")
+        except Exception as e:
+            print(f"Erro ao carregar dados do imóvel: {str(e)}")
+
+        #page.wait_for_load_state('networkidle', timeout=200000)
 
         images = []
         picture_tags = page.query_selector_all("ul.carousel-photos--wrapper li.carousel-photos--item picture source[type='image/webp']")
