@@ -15,7 +15,7 @@ app = Flask(__name__)
 def login_and_get_cookies(email, senha):
     login_url = "https://app.jetimob.com/"
     with sync_playwright() as p:
-        browser = p.chromium.launch(headless=True, args=["--disable-gpu"])
+        browser = p.chromium.launch(headless=False, args=["--disable-gpu"])
         page = browser.new_page()
         
         page.goto(login_url, timeout=90000)
@@ -26,6 +26,8 @@ def login_and_get_cookies(email, senha):
         page.click('button[type="submit"]')
         
         page.wait_for_load_state('networkidle', timeout=90000)
+
+        page.reload()
 
         cookies = page.context.cookies()
         browser.close()
@@ -70,13 +72,13 @@ def extract_data(url, cookies, property_types):
     cookies_dict = {cookie['name']: cookie['value'] for cookie in cookies}
     
     with sync_playwright() as p:
-        browser = p.chromium.launch(headless=True, args=["--disable-gpu"])
+        browser = p.chromium.launch(headless=False, args=["--disable-gpu"])
         page = browser.new_page()
 
-        page.goto(url, timeout=90000)
-        page.set_default_timeout(90000)
+        page.goto(url, timeout=120000)
+        page.set_default_timeout(120000)
         
-        page.wait_for_load_state('networkidle', timeout=90000)
+        page.wait_for_load_state('networkidle', timeout=120000)
 
         images = []
         picture_tags = page.query_selector_all("ul.carousel-photos--wrapper li.carousel-photos--item picture source[type='image/webp']")
@@ -132,9 +134,13 @@ def extract_data(url, cookies, property_types):
         
         condo_fee_price_tag = soup.find('span', id='condo-fee-price')
         condo_fee_price = re.sub(r'\D', '', condo_fee_price_tag.text.strip()) if condo_fee_price_tag else None
+        if condo_fee_price == '':
+            condo_fee_price = 0
         
         iptu_price_tag = soup.find('span', id='iptu-price')
         iptu_price = re.sub(r'\D', '', iptu_price_tag.text.strip()) if iptu_price_tag else None
+        if iptu_price == '':
+            iptu_price = 0
         
         iptu_period_tag = soup.find('span', {'class': 'l-text--variant-body-regular l-text--weight-regular undefined'})
         iptu_period = iptu_period_tag.text.strip().lower() if iptu_period_tag else "ano"
@@ -321,13 +327,22 @@ def cadastrar_imovel():
 
         data = extract_data(url, cookies, property_types)
 
-        endereco_regex = re.compile(r'^(.*?)(?:, (\d+))? - (.*?), (.*?)(?: - (.*))?$')
+        endereco_regex = re.compile(r'^(.*?)(?:, (\d+))?(?: - (.*?))?, (.*?)(?: - (.*))?$')
 
         match = endereco_regex.match(data['endereco'])
 
-        rua = match.group(1) if match and match.group(1) != None else "Av. Olegário Maciel"
-        numero = match.group(2) if match and match.group(2) != None else str(random.randint(0, 1000))
-        neighborhood = match.group(3) if match and match.group(3) != None else "3420"
+        if match:
+            rua = match.group(1).strip() if match.group(2) else "Av. Olegário Maciel"
+            numero = match.group(2).strip() if match.group(2) else str(random.randint(0, 1000))
+            neighborhood = match.group(3).strip() if match.group(3) else match.group(1).strip()
+        else:
+            rua = "Av. Olegário Maciel"
+            numero = str(random.randint(0, 1000))
+            neighborhood = "3420"
+
+        #rua = match.group(1) if match and match.group(1) != None else "Av. Olegário Maciel"
+        #numero = match.group(2) if match and match.group(2) != None else str(random.randint(0, 1000))
+        #neighborhood = match.group(3) if match and match.group(3) != None else "3420"
 
         with open('./data/neighborhoods.json', 'r', encoding='utf-8') as f:
             neighborhoods = json.load(f)
