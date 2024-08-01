@@ -15,21 +15,31 @@ app = Flask(__name__)
 def login_and_get_cookies(email, senha):
     login_url = "https://app.jetimob.com/"
     with sync_playwright() as p:
-        browser = p.chromium.launch(headless=True, args=["--disable-gpu"])
+        browser = p.chromium.launch(headless=True, args=["--disable-gpu", "--no-sandbox"])
         page = browser.new_page()
+
+        page.goto(login_url, timeout=90000)
+        page.set_default_timeout(90000)
         
-        page.goto(login_url, timeout=120000)
-        page.set_default_timeout(120000)
+        print("Página de login carregada")
 
         page.fill('input[placeholder="exemplo@email.com"]', email)
         page.fill('input[placeholder="Digite sua senha"]', senha)
         page.click('button[type="submit"]')
+
+        print("Credenciais preenchidas e botão de login clicado")
         
-        page.wait_for_load_state('networkidle', timeout=120000)
+        try:
+            page.wait_for_load_state('networkidle', timeout=90000)
+            print("Página após login carregada")
+        except Exception as e:
+            print(f"Erro ao carregar a página após o login: {str(e)}")
 
         page.reload()
+        print("Página recarregada")
 
         cookies = page.context.cookies()
+        print("Cookies obtidos:", cookies)
         browser.close()
         
         return cookies
