@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify, render_template
 import requests
 from PIL import Image
 from io import BytesIO
-from playwright.sync_api import sync_playwright
+from playwright.sync_api import sync_playwright, TimeoutError as PlaywrightTimeoutError
 from bs4 import BeautifulSoup
 import json
 import re
@@ -18,29 +18,41 @@ def login_and_get_cookies(email, senha):
         browser = p.chromium.launch(headless=True, args=["--disable-gpu", "--no-sandbox"])
         page = browser.new_page()
 
-        page.goto(login_url, timeout=90000)
-        page.set_default_timeout(90000)
-        
-        print("Página de login carregada")
-
-        page.fill('input[placeholder="exemplo@email.com"]', email)
-        page.fill('input[placeholder="Digite sua senha"]', senha)
-        page.click('button[type="submit"]')
-
-        print("Credenciais preenchidas e botão de login clicado")
-        
         try:
-            page.wait_for_load_state('networkidle', timeout=90000)
-            print("Página após login carregada")
+            page.goto(login_url, timeout=90000)
+            page.set_default_timeout(90000)
+            
+            print("Página de login carregada")
+
+            page.fill('input[placeholder="exemplo@email.com"]', email)
+            page.fill('input[placeholder="Digite sua senha"]', senha)
+            page.click('button[type="submit"]')
+
+            print("Credenciais preenchidas e botão de login clicado")
+
+            # Tentar esperar o estado de 'networkidle'
+            try:
+                page.wait_for_load_state('networkidle', timeout=90000)
+                print("Página após login carregada")
+            except PlaywrightTimeoutError:
+                print("Tempo esgotado ao esperar pelo estado 'networkidle'. Tentando carregar manualmente.")
+
+            # Recarregar a página para garantir que os cookies foram configurados
+            page.reload()
+            page.wait_for_load_state('load', timeout=90000)
+            print("Página recarregada e totalmente carregada")
+
+            # Obter cookies após recarregar
+            cookies = page.context.cookies()
+            print("Cookies obtidos:", cookies)
+        except PlaywrightTimeoutError as e:
+            print(f"Erro de timeout: {str(e)}")
+            cookies = []
         except Exception as e:
-            print(f"Erro ao carregar a página após o login: {str(e)}")
-
-        page.reload()
-        print("Página recarregada")
-
-        cookies = page.context.cookies()
-        print("Cookies obtidos:", cookies)
-        browser.close()
+            print(f"Erro inesperado: {str(e)}")
+            cookies = []
+        finally:
+            browser.close()
         
         return cookies
 
@@ -83,149 +95,166 @@ def extract_data(url, cookies, property_types):
     
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=False, args=["--disable-gpu"])
-        page = browser.new_page()
+        context = browser.new_context()
 
-        page.goto(url, timeout=200000)
-        page.set_default_timeout(200000)
+        # Configurar os cookies no contexto do navegador
+        context.add_cookies(cookies)
         
+        page = context.new_page()
         try:
-            page.wait_for_load_state('networkidle', timeout=200000)
-            print("Dados do imóvel carregados")
-        except Exception as e:
-            print(f"Erro ao carregar dados do imóvel: {str(e)}")
-
-        #page.wait_for_load_state('networkidle', timeout=200000)
-
-        images = []
-        picture_tags = page.query_selector_all("ul.carousel-photos--wrapper li.carousel-photos--item picture source[type='image/webp']")
-        for picture in picture_tags:
-            img_url = picture.get_attribute("srcset")
-            if img_url:
-                img_url = img_url.split()[0]
-                images.append(img_url)
-        
-        if not os.path.exists('img'):
-            os.makedirs('img')
-        
-        for idx, img_url in enumerate(images):
-            img_response = requests.get(img_url, cookies=cookies_dict)
-            img = Image.open(BytesIO(img_response.content)).convert('RGB')
-            img_path = f'img/img_{idx}.jpeg'
+            page.goto(url, timeout=200000)
+            page.set_default_timeout(200000)
             
-            if len(img_response.content) > 50 * 1024 * 1024:
-                img.save(img_path, format='JPEG', quality=85)
-            else:
-                img.save(img_path, format='JPEG')
-        
-        content = page.content()
-        soup = BeautifulSoup(content, 'html.parser')
-        
-        scripts = soup.find_all('script', type='application/ld+json')
-        
-        breadcrumb_data = None
-        product_data = None
-        
-        for script in scripts:
-            script_content = json.loads(script.string)
-            if "@type" in script_content:
-                if script_content["@type"] == "BreadcrumbList":
-                    breadcrumb_data = script_content
-                elif script_content["@type"] == "Product":
-                    product_data = script_content
-        
-        if not breadcrumb_data or not product_data:
-            raise ValueError("Não foi possível encontrar os dados necessários na página.")
-        
-        localidade = " > ".join([item["item"]["name"] for item in breadcrumb_data.get("itemListElement", [])])
-        
-        nome = product_data.get("name", None)
-        descricao = product_data.get("description", None)
-        preco = product_data.get("offers", {}).get("price", None)
-        
-        business_type_tag = soup.find('p', id='business-type-info')
-        business_type = business_type_tag.text.strip() if business_type_tag else None
-        
-        price_info_tag = soup.find('p', {'data-testid': 'price-info-value'})
-        price_info = re.sub(r'\D', '', price_info_tag.text.strip()) if price_info_tag else None
-        
-        condo_fee_price_tag = soup.find('span', id='condo-fee-price')
-        condo_fee_price = re.sub(r'\D', '', condo_fee_price_tag.text.strip()) if condo_fee_price_tag else None
-        if condo_fee_price == '':
-            condo_fee_price = 0
-        
-        iptu_price_tag = soup.find('span', id='iptu-price')
-        iptu_price = re.sub(r'\D', '', iptu_price_tag.text.strip()) if iptu_price_tag else None
-        if iptu_price == '':
-            iptu_price = 0
-        
-        iptu_period_tag = soup.find('span', {'class': 'l-text--variant-body-regular l-text--weight-regular undefined'})
-        iptu_period = iptu_period_tag.text.strip().lower() if iptu_period_tag else "ano"
-        
-        address_info_tag = soup.find('p', {'data-testid': 'address-info-value'})
-        address_info = address_info_tag.text.strip() if address_info_tag else None
-        
-        area = 0
-        quartos = 0
-        banheiros = 0
-        vagas = 0
-        suites = 0
-        andar = "N/A"
-        varanda = "N/A"
+            try:
+                page.wait_for_load_state('networkidle', timeout=200000)
+                print("Dados do imóvel carregados")
+            except PlaywrightTimeoutError:
+                print("Tempo esgotado ao esperar pelo estado 'networkidle'. Tentando carregar manualmente.")
+                page.reload()
+                page.wait_for_load_state('load', timeout=200000)
+                print("Página recarregada e totalmente carregada")
+                
+            # Extrair imagens
+            images = []
+            picture_tags = page.query_selector_all("ul.carousel-photos--wrapper li.carousel-photos--item picture source[type='image/webp']")
+            for picture in picture_tags:
+                img_url = picture.get_attribute("srcset")
+                if img_url:
+                    img_url = img_url.split()[0]
+                    images.append(img_url)
+            
+            if not os.path.exists('img'):
+                os.makedirs('img')
+            
+            for idx, img_url in enumerate(images):
+                img_response = requests.get(img_url, cookies=cookies_dict)
+                img = Image.open(BytesIO(img_response.content)).convert('RGB')
+                img_path = f'img/img_{idx}.jpeg'
+                
+                if len(img_response.content) > 50 * 1024 * 1024:
+                    img.save(img_path, format='JPEG', quality=85)
+                else:
+                    img.save(img_path, format='JPEG')
+            
+            # Analisar conteúdo da página
+            content = page.content()
+            soup = BeautifulSoup(content, 'html.parser')
+            
+            # Extrair dados de scripts JSON
+            scripts = soup.find_all('script', type='application/ld+json')
+            breadcrumb_data = None
+            product_data = None
+            
+            for script in scripts:
+                script_content = json.loads(script.string)
+                if "@type" in script_content:
+                    if script_content["@type"] == "BreadcrumbList":
+                        breadcrumb_data = script_content
+                    elif script_content["@type"] == "Product":
+                        product_data = script_content
+            
+            if not breadcrumb_data or not product_data:
+                raise ValueError("Não foi possível encontrar os dados necessários na página.")
+            
+            localidade = " > ".join([item["item"]["name"] for item in breadcrumb_data.get("itemListElement", [])])
+            
+            nome = product_data.get("name", None)
+            descricao = product_data.get("description", None)
+            preco = product_data.get("offers", {}).get("price", None)
+            
+            # Extrair dados adicionais
+            business_type_tag = soup.find('p', id='business-type-info')
+            business_type = business_type_tag.text.strip() if business_type_tag else None
+            
+            price_info_tag = soup.find('p', {'data-testid': 'price-info-value'})
+            price_info = re.sub(r'\D', '', price_info_tag.text.strip()) if price_info_tag else None
+            
+            condo_fee_price_tag = soup.find('span', id='condo-fee-price')
+            condo_fee_price = re.sub(r'\D', '', condo_fee_price_tag.text.strip()) if condo_fee_price_tag else None
+            if condo_fee_price == '':
+                condo_fee_price = 0
+            
+            iptu_price_tag = soup.find('span', id='iptu-price')
+            iptu_price = re.sub(r'\D', '', iptu_price_tag.text.strip()) if iptu_price_tag else None
+            if iptu_price == '':
+                iptu_price = 0
+            
+            iptu_period_tag = soup.find('span', {'class': 'l-text--variant-body-regular l-text--weight-regular undefined'})
+            iptu_period = iptu_period_tag.text.strip().lower() if iptu_period_tag else "ano"
+            
+            address_info_tag = soup.find('p', {'data-testid': 'address-info-value'})
+            address_info = address_info_tag.text.strip() if address_info_tag else None
+            
+            # Extrair amenidades
+            area = 0
+            quartos = 0
+            banheiros = 0
+            vagas = 0
+            suites = 0
+            andar = "N/A"
+            varanda = "N/A"
 
-        amenities_items = soup.find_all('p', class_='amenities-item')
-        amenities = []
-        for item in amenities_items:
-            text = item.text.strip()
-            amenities.append(text)
-            if "m²" in text:
-                area = re.sub(r'\D', '', text)
-            elif "quartos" in text:
-                quartos = re.sub(r'\D', '', text)
-            elif "banheiros" in text:
-                banheiros = re.sub(r'\D', '', text)
-            elif "vagas" in text:
-                vagas = re.sub(r'\D', '', text)
-            elif "andar" in text:
-                andar = re.sub(r'\D', '', text)
-            elif "Varanda" in text:
-                varanda = text
+            amenities_items = soup.find_all('p', class_='amenities-item')
+            amenities = []
+            for item in amenities_items:
+                text = item.text.strip()
+                amenities.append(text)
+                if "m²" in text:
+                    area = re.sub(r'\D', '', text)
+                elif "quartos" in text:
+                    quartos = re.sub(r'\D', '', text)
+                elif "banheiros" in text:
+                    banheiros = re.sub(r'\D', '', text)
+                elif "vagas" in text:
+                    vagas = re.sub(r'\D', '', text)
+                elif "andar" in text:
+                    andar = re.sub(r'\D', '', text)
+                elif "Varanda" in text:
+                    varanda = text
 
-        if vagas == 0 or suites == 0:
-            descricao_lower = descricao.lower()
-            vagas_match = re.search(r'\d+\s*vagas?', descricao_lower) or re.search(r'uma\s*vaga', descricao_lower)
-            suites_match = re.search(r'\d+\s*suites?', descricao_lower) or re.search(r'uma\s*suíte', descricao_lower)
-            if vagas_match:
-                vagas = int(re.search(r'\d+', vagas_match.group()).group())
-            if suites_match:
-                suites = int(re.search(r'\d+', suites_match.group()).group())
-        
-        created_at_tag = soup.find('span', class_='description__created-at')
-        created_at = created_at_tag.text.strip() if created_at_tag else "N/A"
-        
-        property_type_id = map_property_type(descricao, property_types)
+            if vagas == 0 or suites == 0:
+                descricao_lower = descricao.lower()
+                vagas_match = re.search(r'\d+\s*vagas?', descricao_lower) or re.search(r'uma\s*vaga', descricao_lower)
+                suites_match = re.search(r'\d+\s*suites?', descricao_lower) or re.search(r'uma\s*suíte', descricao_lower)
+                if vagas_match:
+                    vagas = int(re.search(r'\d+', vagas_match.group()).group())
+                if suites_match:
+                    suites = int(re.search(r'\d+', suites_match.group()).group())
+            
+            created_at_tag = soup.find('span', class_='description__created-at')
+            created_at = created_at_tag.text.strip() if created_at_tag else "N/A"
+            
+            property_type_id = map_property_type(descricao, property_types)
 
-        return {
-            "localidade": localidade,
-            "nome": nome,
-            "descricao": descricao,
-            "preco_imovel": int(price_info) * 100,
-            "tipo_negocio": business_type,
-            "preco_condominio": int(condo_fee_price) * 100,
-            "preco_iptu": int(iptu_price) * 100,
-            "iptu_period": iptu_period,
-            "area": area,
-            "quartos": quartos,
-            "banheiros": banheiros,
-            "vagas": vagas,
-            "suites": suites,
-            "andar": andar,
-            "varanda": varanda,
-            "amenities": amenities,
-            "images": images,
-            "created_at": created_at,
-            "endereco": address_info,
-            "type": property_type_id
-        }
+            return {
+                "localidade": localidade,
+                "nome": nome,
+                "descricao": descricao,
+                "preco_imovel": int(price_info) * 100,
+                "tipo_negocio": business_type,
+                "preco_condominio": int(condo_fee_price) * 100,
+                "preco_iptu": int(iptu_price) * 100,
+                "iptu_period": iptu_period,
+                "area": area,
+                "quartos": quartos,
+                "banheiros": banheiros,
+                "vagas": vagas,
+                "suites": suites,
+                "andar": andar,
+                "varanda": varanda,
+                "amenities": amenities,
+                "images": images,
+                "created_at": created_at,
+                "endereco": address_info,
+                "type": property_type_id
+            }
+
+        except PlaywrightTimeoutError as e:
+            print(f"Erro de timeout: {str(e)}")
+        except Exception as e:
+            print(f"Erro inesperado: {str(e)}")
+        finally:
+            browser.close()
 
 def resize_image(image_path, max_size=15 * 1024 * 1024):
     img = Image.open(image_path)
