@@ -1,0 +1,1818 @@
+[
+    {
+        "id": 3260,
+        "name": "Aarão Reis"
+    },
+    {
+        "id": 60240,
+        "name": "Acaba Mundo"
+    },
+    {
+        "id": 3261,
+        "name": "Acaiaca"
+    },
+    {
+        "id": 3262,
+        "name": "Adelaide"
+    },
+    {
+        "id": 54726,
+        "name": "Aeroporto"
+    },
+    {
+        "id": 50466,
+        "name": "Águas Claras,(Barreiro)"
+    },
+    {
+        "id": 3263,
+        "name": "Alípio de Melo"
+    },
+    {
+        "id": 52775,
+        "name": "Alpes"
+    },
+    {
+        "id": 64327,
+        "name": "Alta Tensão I"
+    },
+    {
+        "id": 52834,
+        "name": "Alto Barroca"
+    },
+    {
+        "id": 54113,
+        "name": "Alto Caiçaras"
+    },
+    {
+        "id": 3264,
+        "name": "Alto dos Pinheiros"
+    },
+    {
+        "id": 59295,
+        "name": "Alto Vera Cruz"
+    },
+    {
+        "id": 3265,
+        "name": "Álvaro Camargos"
+    },
+    {
+        "id": 3268,
+        "name": "Anchieta"
+    },
+    {
+        "id": 3269,
+        "name": "Aparecida"
+    },
+    {
+        "id": 60072,
+        "name": "Aparecida Sétima Seção"
+    },
+    {
+        "id": 59491,
+        "name": "Ápia"
+    },
+    {
+        "id": 61517,
+        "name": "Apolônia"
+    },
+    {
+        "id": 57145,
+        "name": "Araguaia"
+    },
+    {
+        "id": 59190,
+        "name": "Área Rural de Belo Horizonte"
+    },
+    {
+        "id": -18978,
+        "name": "Átila de Paiva"
+    },
+    {
+        "id": 3318,
+        "name": "Átila de Paiva,(Barreiro)"
+    },
+    {
+        "id": 56786,
+        "name": "Baleia"
+    },
+    {
+        "id": -13609,
+        "name": "Bandeirantes"
+    },
+    {
+        "id": -18767,
+        "name": "Bandeirantes (Pampulha)"
+    },
+    {
+        "id": 3271,
+        "name": "Bandeirantes,(Pampulha)"
+    },
+    {
+        "id": 63322,
+        "name": "Barão Homem de Melo I"
+    },
+    {
+        "id": 3272,
+        "name": "Barreiro"
+    },
+    {
+        "id": 3274,
+        "name": "Barro Preto"
+    },
+    {
+        "id": 3275,
+        "name": "Barroca"
+    },
+    {
+        "id": 52895,
+        "name": "Beija Flor"
+    },
+    {
+        "id": 60078,
+        "name": "Beira-Linha"
+    },
+    {
+        "id": 3276,
+        "name": "Belém"
+    },
+    {
+        "id": 3395,
+        "name": "Belmonte"
+    },
+    {
+        "id": 3278,
+        "name": "Belvedere"
+    },
+    {
+        "id": 59672,
+        "name": "Bernadete,(Barreiro)"
+    },
+    {
+        "id": 3279,
+        "name": "Betânia"
+    },
+    {
+        "id": 63502,
+        "name": "Biquinhas"
+    },
+    {
+        "id": 63513,
+        "name": "Bispo de Maura"
+    },
+    {
+        "id": 60001,
+        "name": "Boa Esperança"
+    },
+    {
+        "id": 59708,
+        "name": "Boa Viagem"
+    },
+    {
+        "id": 3280,
+        "name": "Boa Vista"
+    },
+    {
+        "id": 3546,
+        "name": "Bom Jesus"
+    },
+    {
+        "id": 3281,
+        "name": "Bonfim"
+    },
+    {
+        "id": -13910,
+        "name": "Bonsucesso"
+    },
+    {
+        "id": 3282,
+        "name": "Bonsucesso,(Barreiro)"
+    },
+    {
+        "id": -18973,
+        "name": "Brasil Industrial"
+    },
+    {
+        "id": 3283,
+        "name": "Brasil Industrial,(Barreiro)"
+    },
+    {
+        "id": 3284,
+        "name": "Braúnas"
+    },
+    {
+        "id": 3285,
+        "name": "Buritis"
+    },
+    {
+        "id": 3286,
+        "name": "Cabana do Pai Tomás"
+    },
+    {
+        "id": 3287,
+        "name": "Cachoeirinha"
+    },
+    {
+        "id": 3288,
+        "name": "Caetano Furquim"
+    },
+    {
+        "id": 56782,
+        "name": "Caiçara-Adelaide"
+    },
+    {
+        "id": 3289,
+        "name": "Caiçaras"
+    },
+    {
+        "id": 3290,
+        "name": "Calafate"
+    },
+    {
+        "id": 3291,
+        "name": "Califórnia"
+    },
+    {
+        "id": 3292,
+        "name": "Camargos"
+    },
+    {
+        "id": 3293,
+        "name": "Campo Alegre"
+    },
+    {
+        "id": 53903,
+        "name": "Campus UFMG"
+    },
+    {
+        "id": 3294,
+        "name": "Canaã"
+    },
+    {
+        "id": 52887,
+        "name": "Canadá"
+    },
+    {
+        "id": 3295,
+        "name": "Candelária"
+    },
+    {
+        "id": -16543,
+        "name": "Candelaria"
+    },
+    {
+        "id": 3296,
+        "name": "Capitão Eduardo"
+    },
+    {
+        "id": 59467,
+        "name": "Capitão Eduardo,(Bairro Montes Claros)"
+    },
+    {
+        "id": -13892,
+        "name": "Cardoso"
+    },
+    {
+        "id": 50525,
+        "name": "Cardoso,(Barreiro)"
+    },
+    {
+        "id": 3297,
+        "name": "Carlos Prates"
+    },
+    {
+        "id": 3298,
+        "name": "Carmo"
+    },
+    {
+        "id": 3299,
+        "name": "Casa Branca"
+    },
+    {
+        "id": -18974,
+        "name": "Castanheira"
+    },
+    {
+        "id": 3300,
+        "name": "Castanheira,(Barreiro)"
+    },
+    {
+        "id": 3303,
+        "name": "Castelo"
+    },
+    {
+        "id": 54084,
+        "name": "CDI Jatobá,(Barreiro)"
+    },
+    {
+        "id": 3571,
+        "name": "Cenáculo"
+    },
+    {
+        "id": 3305,
+        "name": "Centro"
+    },
+    {
+        "id": -20200,
+        "name": "Centro - Lourdes"
+    },
+    {
+        "id": 3306,
+        "name": "Céu Azul"
+    },
+    {
+        "id": 3311,
+        "name": "Cidade Jardim"
+    },
+    {
+        "id": 53796,
+        "name": "Cidade Jardim Taquaril"
+    },
+    {
+        "id": 3312,
+        "name": "Cidade Nova"
+    },
+    {
+        "id": 50518,
+        "name": "Cinquentenário"
+    },
+    {
+        "id": 50940,
+        "name": "Colégio Batista"
+    },
+    {
+        "id": 53913,
+        "name": "Comiteco"
+    },
+    {
+        "id": 3316,
+        "name": "Concórdia"
+    },
+    {
+        "id": 60239,
+        "name": "Cônego Pinheiro"
+    },
+    {
+        "id": 3323,
+        "name": "Confisco"
+    },
+    {
+        "id": -18984,
+        "name": "Conjunto Ademar Maldonado"
+    },
+    {
+        "id": 3317,
+        "name": "Conjunto Ademar Maldonado,(Barreiro)"
+    },
+    {
+        "id": 63564,
+        "name": "Conjunto Bonsucesso,(Barreiro)"
+    },
+    {
+        "id": 3321,
+        "name": "Conjunto Califórnia"
+    },
+    {
+        "id": 55564,
+        "name": "Conjunto Celso Machado"
+    },
+    {
+        "id": -18988,
+        "name": "Conjunto Habitacional Vale do Jatobá"
+    },
+    {
+        "id": 3325,
+        "name": "Conjunto Habitacional Vale do Jatobá,(Barreiro)"
+    },
+    {
+        "id": 55303,
+        "name": "Conjunto Jardim Filadélfia"
+    },
+    {
+        "id": 53211,
+        "name": "Conjunto Jatobá,(Barreiro)"
+    },
+    {
+        "id": 3327,
+        "name": "Conjunto Lagoa"
+    },
+    {
+        "id": 3329,
+        "name": "Conjunto Minascaixa"
+    },
+    {
+        "id": 56969,
+        "name": "Conjunto Novo Dom Bosco"
+    },
+    {
+        "id": 3483,
+        "name": "Conjunto Paulo VI"
+    },
+    {
+        "id": 3331,
+        "name": "Conjunto Santa Maria"
+    },
+    {
+        "id": 50453,
+        "name": "Conjunto Taquaril"
+    },
+    {
+        "id": -18976,
+        "name": "Conjunto Túnel Ibirité"
+    },
+    {
+        "id": 3332,
+        "name": "Conjunto Túnel Ibirité,(Barreiro)"
+    },
+    {
+        "id": 3334,
+        "name": "Copacabana"
+    },
+    {
+        "id": 3335,
+        "name": "Coqueiros"
+    },
+    {
+        "id": 3336,
+        "name": "Coração de Jesus"
+    },
+    {
+        "id": 3337,
+        "name": "Coração Eucarístico"
+    },
+    {
+        "id": 50529,
+        "name": "Corumbiara,(Barreiro)"
+    },
+    {
+        "id": 3340,
+        "name": "Cruzeiro"
+    },
+    {
+        "id": 56684,
+        "name": "Delta"
+    },
+    {
+        "id": -12399,
+        "name": "Diamante"
+    },
+    {
+        "id": 3341,
+        "name": "Diamante,(Barreiro)"
+    },
+    {
+        "id": 3342,
+        "name": "Distrito Industrial do Jatobá,(Barreiro)"
+    },
+    {
+        "id": 63313,
+        "name": "Distrito Industrial do Jatobá,(Camilo Torres)"
+    },
+    {
+        "id": 63316,
+        "name": "Distrito Industrial do Jatobá,(Eliana Silva)"
+    },
+    {
+        "id": 63314,
+        "name": "Distrito Industrial do Jatobá,(Irmã Doroty)"
+    },
+    {
+        "id": 3343,
+        "name": "Dom Bosco"
+    },
+    {
+        "id": 3344,
+        "name": "Dom Cabral"
+    },
+    {
+        "id": 54085,
+        "name": "Dom Joaquim"
+    },
+    {
+        "id": 3346,
+        "name": "Dom Silvério"
+    },
+    {
+        "id": 3347,
+        "name": "Dona Clara"
+    },
+    {
+        "id": 3348,
+        "name": "Engenho Nogueira"
+    },
+    {
+        "id": 3575,
+        "name": "Ermelinda"
+    },
+    {
+        "id": 3330,
+        "name": "Ernesto do Nascimento(Barreiro)"
+    },
+    {
+        "id": 51340,
+        "name": "Esperança,(Barreiro)"
+    },
+    {
+        "id": 3350,
+        "name": "Esplanada"
+    },
+    {
+        "id": 3352,
+        "name": "Estoril"
+    },
+    {
+        "id": 50539,
+        "name": "Estrela"
+    },
+    {
+        "id": 3354,
+        "name": "Estrela do Oriente"
+    },
+    {
+        "id": 3355,
+        "name": "Etelvina Carneiro"
+    },
+    {
+        "id": 3356,
+        "name": "Europa"
+    },
+    {
+        "id": 3357,
+        "name": "Eymard"
+    },
+    {
+        "id": 30137,
+        "name": "Fazendinha"
+    },
+    {
+        "id": 3358,
+        "name": "Fernão Dias"
+    },
+    {
+        "id": -18971,
+        "name": "Flávio de Oliveira"
+    },
+    {
+        "id": -13934,
+        "name": "Flavio de Oliveira"
+    },
+    {
+        "id": 50527,
+        "name": "Flávio de Oliveira,(Barreiro)"
+    },
+    {
+        "id": -18954,
+        "name": "Flávio Marques Lisboa"
+    },
+    {
+        "id": 3359,
+        "name": "Flávio Marques Lisboa,(Barreiro)"
+    },
+    {
+        "id": 3360,
+        "name": "Floramar"
+    },
+    {
+        "id": 3361,
+        "name": "Floresta"
+    },
+    {
+        "id": 51780,
+        "name": "Frei Leopoldo"
+    },
+    {
+        "id": 3363,
+        "name": "Funcionários"
+    },
+    {
+        "id": 3364,
+        "name": "Gameleira"
+    },
+    {
+        "id": 3349,
+        "name": "Garças"
+    },
+    {
+        "id": 53194,
+        "name": "Glória"
+    },
+    {
+        "id": 3366,
+        "name": "Goiânia"
+    },
+    {
+        "id": 3367,
+        "name": "Graça"
+    },
+    {
+        "id": 3368,
+        "name": "Grajaú"
+    },
+    {
+        "id": 55304,
+        "name": "Granja de Freitas"
+    },
+    {
+        "id": 54760,
+        "name": "Granja Werneck"
+    },
+    {
+        "id": 61687,
+        "name": "Grotinha"
+    },
+    {
+        "id": 3369,
+        "name": "Guarani"
+    },
+    {
+        "id": 3371,
+        "name": "Gutierrez"
+    },
+    {
+        "id": 3372,
+        "name": "Havaí"
+    },
+    {
+        "id": -12859,
+        "name": "Heliopolis"
+    },
+    {
+        "id": 3373,
+        "name": "Heliópolis"
+    },
+    {
+        "id": 3374,
+        "name": "Horto"
+    },
+    {
+        "id": 50661,
+        "name": "Horto Florestal"
+    },
+    {
+        "id": 56682,
+        "name": "Imbaúbas"
+    },
+    {
+        "id": 3402,
+        "name": "Inconfidência"
+    },
+    {
+        "id": 3377,
+        "name": "Indaiá"
+    },
+    {
+        "id": -18987,
+        "name": "Independência"
+    },
+    {
+        "id": 3378,
+        "name": "Independência,(Barreiro)"
+    },
+    {
+        "id": 3379,
+        "name": "Indians"
+    },
+    {
+        "id": 53947,
+        "name": "Indústrias I,(Barreiro)"
+    },
+    {
+        "id": 3380,
+        "name": "Indústrias II"
+    },
+    {
+        "id": 53453,
+        "name": "Ipê"
+    },
+    {
+        "id": 3382,
+        "name": "Ipiranga"
+    },
+    {
+        "id": -18975,
+        "name": "Itaipu"
+    },
+    {
+        "id": 3385,
+        "name": "Itaipu,(Barreiro)"
+    },
+    {
+        "id": -16546,
+        "name": "Itapoa"
+    },
+    {
+        "id": 3387,
+        "name": "Itapoã"
+    },
+    {
+        "id": 3388,
+        "name": "Itatiaia"
+    },
+    {
+        "id": 3389,
+        "name": "Jaqueline"
+    },
+    {
+        "id": 3390,
+        "name": "Jaraguá"
+    },
+    {
+        "id": 3391,
+        "name": "Jardim Alvorada"
+    },
+    {
+        "id": 3392,
+        "name": "Jardim América"
+    },
+    {
+        "id": 3393,
+        "name": "Jardim Atlântico"
+    },
+    {
+        "id": 3396,
+        "name": "Jardim das Nações"
+    },
+    {
+        "id": 3397,
+        "name": "Jardim dos Comerciários,(Venda Nova)"
+    },
+    {
+        "id": 3324,
+        "name": "Jardim Felicidade"
+    },
+    {
+        "id": 3399,
+        "name": "Jardim Filadélfia"
+    },
+    {
+        "id": 3401,
+        "name": "Jardim Guanabara"
+    },
+    {
+        "id": 3477,
+        "name": "Jardim Leblon"
+    },
+    {
+        "id": 3403,
+        "name": "Jardim Montanhês"
+    },
+    {
+        "id": 3405,
+        "name": "Jardim Pirineus"
+    },
+    {
+        "id": 3533,
+        "name": "Jardim São José"
+    },
+    {
+        "id": -13648,
+        "name": "Jardim Vitoria"
+    },
+    {
+        "id": 3407,
+        "name": "Jardim Vitória"
+    },
+    {
+        "id": 3408,
+        "name": "Jardinópolis"
+    },
+    {
+        "id": -13919,
+        "name": "Jatobá"
+    },
+    {
+        "id": 3432,
+        "name": "Jatobá,(Barreiro)"
+    },
+    {
+        "id": -13922,
+        "name": "João Paulo Ii"
+    },
+    {
+        "id": 59143,
+        "name": "João Paulo II,(Barreiro)"
+    },
+    {
+        "id": 3409,
+        "name": "João Pinheiro"
+    },
+    {
+        "id": 3410,
+        "name": "Jonas Veiga"
+    },
+    {
+        "id": 3411,
+        "name": "Juliana"
+    },
+    {
+        "id": 3412,
+        "name": "Lagoa"
+    },
+    {
+        "id": 3413,
+        "name": "Lagoinha"
+    },
+    {
+        "id": 3416,
+        "name": "Lagoinha Leblon,(Venda Nova)"
+    },
+    {
+        "id": 54769,
+        "name": "Lajedo"
+    },
+    {
+        "id": 3576,
+        "name": "Leonina"
+    },
+    {
+        "id": 3417,
+        "name": "Letícia"
+    },
+    {
+        "id": 3418,
+        "name": "Liberdade"
+    },
+    {
+        "id": -18969,
+        "name": "Lindéia"
+    },
+    {
+        "id": 3419,
+        "name": "Lindéia,(Barreiro)"
+    },
+    {
+        "id": 3420,
+        "name": "Lourdes"
+    },
+    {
+        "id": 3422,
+        "name": "Luxemburgo"
+    },
+    {
+        "id": 3423,
+        "name": "Madre Gertrudes"
+    },
+    {
+        "id": 59687,
+        "name": "Madre Gertrudes III"
+    },
+    {
+        "id": 59688,
+        "name": "Madre Gertrudes V"
+    },
+    {
+        "id": 3424,
+        "name": "Madri"
+    },
+    {
+        "id": 58829,
+        "name": "Mala e Cuia,(Sion)"
+    },
+    {
+        "id": -13610,
+        "name": "Manacas"
+    },
+    {
+        "id": 3425,
+        "name": "Manacás"
+    },
+    {
+        "id": 3426,
+        "name": "Mangabeiras"
+    },
+    {
+        "id": 3427,
+        "name": "Mangueiras,(Barreiro)"
+    },
+    {
+        "id": 3429,
+        "name": "Mantiqueira"
+    },
+    {
+        "id": 3430,
+        "name": "Marajó"
+    },
+    {
+        "id": 50475,
+        "name": "Marçola"
+    },
+    {
+        "id": 3518,
+        "name": "Maria Goretti"
+    },
+    {
+        "id": 50660,
+        "name": "Maria Helena"
+    },
+    {
+        "id": 53454,
+        "name": "Maria Tereza"
+    },
+    {
+        "id": 52506,
+        "name": "Maria Virgínia"
+    },
+    {
+        "id": 50040,
+        "name": "Mariano de Abreu"
+    },
+    {
+        "id": 59626,
+        "name": "Marieta I"
+    },
+    {
+        "id": 59466,
+        "name": "Marilândia"
+    },
+    {
+        "id": 55836,
+        "name": "Mariquinhas"
+    },
+    {
+        "id": 60655,
+        "name": "Marmiteiros"
+    },
+    {
+        "id": -13891,
+        "name": "Milionario"
+    },
+    {
+        "id": -18965,
+        "name": "Milionários"
+    },
+    {
+        "id": 3435,
+        "name": "Milionários,(Barreiro)"
+    },
+    {
+        "id": 3436,
+        "name": "Minas Brasil"
+    },
+    {
+        "id": 50012,
+        "name": "Minascaixa"
+    },
+    {
+        "id": 3406,
+        "name": "Minaslândia,(P Maio)"
+    },
+    {
+        "id": 55342,
+        "name": "Mineirão"
+    },
+    {
+        "id": -13893,
+        "name": "Miramar"
+    },
+    {
+        "id": 53107,
+        "name": "Miramar,(Barreiro)"
+    },
+    {
+        "id": 59582,
+        "name": "Mirante"
+    },
+    {
+        "id": 3438,
+        "name": "Monsenhor Messias"
+    },
+    {
+        "id": 3439,
+        "name": "Monte Azul"
+    },
+    {
+        "id": 3441,
+        "name": "Morro das Pedras"
+    },
+    {
+        "id": 3443,
+        "name": "Nazaré"
+    },
+    {
+        "id": 57364,
+        "name": "Nossa Senhora Aparecida,(Aglomerado da Serra)"
+    },
+    {
+        "id": 50476,
+        "name": "Nossa Senhora da Conceição"
+    },
+    {
+        "id": 3445,
+        "name": "Nossa Senhora da Saúde"
+    },
+    {
+        "id": 3583,
+        "name": "Nossa Senhora de Fátima"
+    },
+    {
+        "id": 53487,
+        "name": "Nossa Senhora do Rosário"
+    },
+    {
+        "id": 3448,
+        "name": "Nova Cachoeirinha"
+    },
+    {
+        "id": 3449,
+        "name": "Nova Cintra"
+    },
+    {
+        "id": 3450,
+        "name": "Nova Esperança"
+    },
+    {
+        "id": 3452,
+        "name": "Nova Floresta"
+    },
+    {
+        "id": 3453,
+        "name": "Nova Gameleira"
+    },
+    {
+        "id": 3454,
+        "name": "Nova Granada"
+    },
+    {
+        "id": 3455,
+        "name": "Nova Pampulha"
+    },
+    {
+        "id": -14221,
+        "name": "Nova Suíça"
+    },
+    {
+        "id": -20199,
+        "name": "Nova Suissa"
+    },
+    {
+        "id": 3456,
+        "name": "Nova Suíssa"
+    },
+    {
+        "id": 3457,
+        "name": "Nova Vista"
+    },
+    {
+        "id": 3459,
+        "name": "Novo Aarão Reis"
+    },
+    {
+        "id": 49880,
+        "name": "Novo das Indústrias,(Barreiro)"
+    },
+    {
+        "id": 3444,
+        "name": "Novo Glória"
+    },
+    {
+        "id": 3460,
+        "name": "Novo Itamarati"
+    },
+    {
+        "id": -18972,
+        "name": "Novo Santa Cecília"
+    },
+    {
+        "id": 3461,
+        "name": "Novo Santa Cecília,(Barreiro)"
+    },
+    {
+        "id": 54020,
+        "name": "Novo Tupi"
+    },
+    {
+        "id": 59657,
+        "name": "Oeste"
+    },
+    {
+        "id": -18977,
+        "name": "Olaria"
+    },
+    {
+        "id": 3463,
+        "name": "Olaria,(Barreiro)"
+    },
+    {
+        "id": 3464,
+        "name": "Olhos D'Água"
+    },
+    {
+        "id": 50177,
+        "name": "Ouro Minas"
+    },
+    {
+        "id": 3465,
+        "name": "Ouro Preto"
+    },
+    {
+        "id": 3466,
+        "name": "Padre Eustáquio"
+    },
+    {
+        "id": 3468,
+        "name": "Palmares"
+    },
+    {
+        "id": 3469,
+        "name": "Palmeiras"
+    },
+    {
+        "id": 3470,
+        "name": "Pampulha"
+    },
+    {
+        "id": 60977,
+        "name": "Pantanal"
+    },
+    {
+        "id": 3404,
+        "name": "Paquetá"
+    },
+    {
+        "id": 3471,
+        "name": "Paraíso"
+    },
+    {
+        "id": 3479,
+        "name": "Parque Riachuelo"
+    },
+    {
+        "id": 50029,
+        "name": "Parque São José"
+    },
+    {
+        "id": 3540,
+        "name": "Parque São Pedro,(Venda Nova)"
+    },
+    {
+        "id": 56940,
+        "name": "Paulo VI"
+    },
+    {
+        "id": 58399,
+        "name": "Pedreira Prado Lopes"
+    },
+    {
+        "id": 3485,
+        "name": "Pedro II"
+    },
+    {
+        "id": 54086,
+        "name": "Penha"
+    },
+    {
+        "id": -18967,
+        "name": "Petrópolis"
+    },
+    {
+        "id": 3487,
+        "name": "Petrópolis,(Barreiro)"
+    },
+    {
+        "id": 3488,
+        "name": "Pilar"
+    },
+    {
+        "id": 3489,
+        "name": "Pindorama"
+    },
+    {
+        "id": 3490,
+        "name": "Pio XII"
+    },
+    {
+        "id": 3491,
+        "name": "Pirajá"
+    },
+    {
+        "id": 3493,
+        "name": "Piratininga,(Venda Nova)"
+    },
+    {
+        "id": 3494,
+        "name": "Planalto"
+    },
+    {
+        "id": 3495,
+        "name": "Pompéia"
+    },
+    {
+        "id": -18986,
+        "name": "Pongelupe"
+    },
+    {
+        "id": 50526,
+        "name": "Pongelupe,(Barreiro)"
+    },
+    {
+        "id": 50279,
+        "name": "Pousada Santo Antônio"
+    },
+    {
+        "id": 3496,
+        "name": "Prado"
+    },
+    {
+        "id": 3498,
+        "name": "Primeiro de Maio"
+    },
+    {
+        "id": 3500,
+        "name": "Providência"
+    },
+    {
+        "id": 3502,
+        "name": "Renascença"
+    },
+    {
+        "id": 3503,
+        "name": "Ribeiro de Abreu"
+    },
+    {
+        "id": 3605,
+        "name": "Rio Branco"
+    },
+    {
+        "id": 3504,
+        "name": "Sagrada Família"
+    },
+    {
+        "id": 3505,
+        "name": "Salgado Filho"
+    },
+    {
+        "id": 3506,
+        "name": "Santa Amélia"
+    },
+    {
+        "id": -13441,
+        "name": "Santa Amelia"
+    },
+    {
+        "id": 3507,
+        "name": "Santa Branca"
+    },
+    {
+        "id": 3508,
+        "name": "Santa Cecília Vale do Jatobá,(Barreiro)"
+    },
+    {
+        "id": 3510,
+        "name": "Santa Cruz"
+    },
+    {
+        "id": 3511,
+        "name": "Santa Cruz,(Barreiro)"
+    },
+    {
+        "id": 3512,
+        "name": "Santa Efigênia"
+    },
+    {
+        "id": -18966,
+        "name": "Santa Helena"
+    },
+    {
+        "id": 3513,
+        "name": "Santa Helena,(Barreiro)"
+    },
+    {
+        "id": 3514,
+        "name": "Santa Inês"
+    },
+    {
+        "id": 3515,
+        "name": "Santa Isabel"
+    },
+    {
+        "id": 3516,
+        "name": "Santa Lúcia"
+    },
+    {
+        "id": 58985,
+        "name": "Santa Margarida,(Barreiro)"
+    },
+    {
+        "id": 3517,
+        "name": "Santa Maria"
+    },
+    {
+        "id": -16548,
+        "name": "Santa Monica"
+    },
+    {
+        "id": 3519,
+        "name": "Santa Mônica"
+    },
+    {
+        "id": 49775,
+        "name": "Santa Rita de Cássia"
+    },
+    {
+        "id": 3593,
+        "name": "Santa Rita,(Barreiro)"
+    },
+    {
+        "id": 3520,
+        "name": "Santa Rosa"
+    },
+    {
+        "id": 52774,
+        "name": "Santa Sofia"
+    },
+    {
+        "id": 3521,
+        "name": "Santa Tereza"
+    },
+    {
+        "id": 52385,
+        "name": "Santa Terezinha"
+    },
+    {
+        "id": 3594,
+        "name": "Santana do Cafezal"
+    },
+    {
+        "id": 3522,
+        "name": "Santo Agostinho"
+    },
+    {
+        "id": 3523,
+        "name": "Santo André"
+    },
+    {
+        "id": 3524,
+        "name": "Santo Antônio"
+    },
+    {
+        "id": 57391,
+        "name": "São Benedito"
+    },
+    {
+        "id": 3525,
+        "name": "São Bento"
+    },
+    {
+        "id": 3526,
+        "name": "São Bernardo"
+    },
+    {
+        "id": 3527,
+        "name": "São Cristóvão"
+    },
+    {
+        "id": 51782,
+        "name": "São Damião"
+    },
+    {
+        "id": 3528,
+        "name": "São Francisco"
+    },
+    {
+        "id": 55374,
+        "name": "São Francisco das Chagas"
+    },
+    {
+        "id": 3529,
+        "name": "São Gabriel"
+    },
+    {
+        "id": 3530,
+        "name": "São Geraldo"
+    },
+    {
+        "id": 56553,
+        "name": "São Gonçalo"
+    },
+    {
+        "id": 60135,
+        "name": "São João"
+    },
+    {
+        "id": -13443,
+        "name": "São João Batista"
+    },
+    {
+        "id": 3531,
+        "name": "São João Batista,(Venda Nova)"
+    },
+    {
+        "id": 52835,
+        "name": "São Jorge"
+    },
+    {
+        "id": 60204,
+        "name": "São Jorge II"
+    },
+    {
+        "id": 60205,
+        "name": "São Jorge III"
+    },
+    {
+        "id": 3534,
+        "name": "São José"
+    },
+    {
+        "id": 3535,
+        "name": "São Lucas"
+    },
+    {
+        "id": 3536,
+        "name": "São Luiz"
+    },
+    {
+        "id": 3537,
+        "name": "São Marcos"
+    },
+    {
+        "id": 3538,
+        "name": "São Paulo"
+    },
+    {
+        "id": 3539,
+        "name": "São Pedro"
+    },
+    {
+        "id": 3541,
+        "name": "São Salvador"
+    },
+    {
+        "id": 59669,
+        "name": "São Sebastião"
+    },
+    {
+        "id": 3601,
+        "name": "São Tomáz"
+    },
+    {
+        "id": 3544,
+        "name": "Satélite"
+    },
+    {
+        "id": 3545,
+        "name": "Saudade"
+    },
+    {
+        "id": 59707,
+        "name": "Savassi"
+    },
+    {
+        "id": 54168,
+        "name": "Senhor dos Passos"
+    },
+    {
+        "id": 3547,
+        "name": "Serra"
+    },
+    {
+        "id": 60070,
+        "name": "Serra do Curral"
+    },
+    {
+        "id": 3548,
+        "name": "Serra Verde,(Venda Nova)"
+    },
+    {
+        "id": 3549,
+        "name": "Serrano"
+    },
+    {
+        "id": 3550,
+        "name": "Silveira"
+    },
+    {
+        "id": 3552,
+        "name": "Sion"
+    },
+    {
+        "id": -13903,
+        "name": "Solar do Barreiro"
+    },
+    {
+        "id": 50528,
+        "name": "Solar do Barreiro,(Barreiro)"
+    },
+    {
+        "id": 3553,
+        "name": "Solimões"
+    },
+    {
+        "id": 56685,
+        "name": "Sport Club"
+    },
+    {
+        "id": 52743,
+        "name": "Sumaré"
+    },
+    {
+        "id": 3602,
+        "name": "Suzana"
+    },
+    {
+        "id": 3555,
+        "name": "Taquaril"
+    },
+    {
+        "id": -12858,
+        "name": "Teixeira Dias"
+    },
+    {
+        "id": 3556,
+        "name": "Teixeira Dias,(Barreiro)"
+    },
+    {
+        "id": 64085,
+        "name": "Tiradentes"
+    },
+    {
+        "id": -13906,
+        "name": "Tirol"
+    },
+    {
+        "id": 3557,
+        "name": "Tirol Barreiro"
+    },
+    {
+        "id": 60190,
+        "name": "Três Marias"
+    },
+    {
+        "id": 3559,
+        "name": "Trevo"
+    },
+    {
+        "id": 63311,
+        "name": "Trevo,(Dandara)"
+    },
+    {
+        "id": 3560,
+        "name": "Tupi A"
+    },
+    {
+        "id": 54767,
+        "name": "Tupi B"
+    },
+    {
+        "id": 3561,
+        "name": "União"
+    },
+    {
+        "id": 3562,
+        "name": "Universitário"
+    },
+    {
+        "id": 61519,
+        "name": "Universo"
+    },
+    {
+        "id": 3563,
+        "name": "Urca"
+    },
+    {
+        "id": -13909,
+        "name": "Vale do Jatoba"
+    },
+    {
+        "id": -18989,
+        "name": "Vale do Jatobá"
+    },
+    {
+        "id": 3565,
+        "name": "Vale do Jatobá,(Barreiro)"
+    },
+    {
+        "id": 3566,
+        "name": "Venda Nova"
+    },
+    {
+        "id": 52833,
+        "name": "Ventosa"
+    },
+    {
+        "id": 3567,
+        "name": "Vera Cruz"
+    },
+    {
+        "id": 51776,
+        "name": "Vila Aeroporto"
+    },
+    {
+        "id": -13444,
+        "name": "Vila Alpina"
+    },
+    {
+        "id": 52836,
+        "name": "Vila Antena"
+    },
+    {
+        "id": 57697,
+        "name": "Vila Antena Montanhês"
+    },
+    {
+        "id": 60137,
+        "name": "Vila Bandeirantes"
+    },
+    {
+        "id": 49776,
+        "name": "Vila Barragem Santa Lúcia"
+    },
+    {
+        "id": 37342,
+        "name": "Vila Bernadete,(Barreiro)"
+    },
+    {
+        "id": 60138,
+        "name": "Vila Calafate"
+    },
+    {
+        "id": 56028,
+        "name": "Vila Cemig"
+    },
+    {
+        "id": 3572,
+        "name": "Vila Cloris"
+    },
+    {
+        "id": 29325,
+        "name": "Vila Coqueiral,(Vila da Paz)"
+    },
+    {
+        "id": 59686,
+        "name": "Vila da Luz"
+    },
+    {
+        "id": -13445,
+        "name": "Vila da Serra"
+    },
+    {
+        "id": 63512,
+        "name": "Vila dos Anjos"
+    },
+    {
+        "id": 31074,
+        "name": "Vila Ecológica,(Barreiro)"
+    },
+    {
+        "id": 30693,
+        "name": "Vila Formosa Vale do Jatobá,(Barreiro)"
+    },
+    {
+        "id": 62323,
+        "name": "Vila Independencia I"
+    },
+    {
+        "id": 59987,
+        "name": "Vila Independencia II"
+    },
+    {
+        "id": 59668,
+        "name": "Vila Inestan"
+    },
+    {
+        "id": 31075,
+        "name": "Vila Itaipu,(Barreiro)"
+    },
+    {
+        "id": 63501,
+        "name": "Vila Jardim Alvorada"
+    },
+    {
+        "id": 59047,
+        "name": "Vila Jardim São José"
+    },
+    {
+        "id": 3579,
+        "name": "Vila Madre Gertrudes I"
+    },
+    {
+        "id": 61913,
+        "name": "Vila Maloca"
+    },
+    {
+        "id": 64136,
+        "name": "Vila Maria"
+    },
+    {
+        "id": 60843,
+        "name": "Vila Nossa Senhora Aparecida"
+    },
+    {
+        "id": 60074,
+        "name": "Vila Nova Gameleira II"
+    },
+    {
+        "id": 53137,
+        "name": "Vila Nova Paraíso"
+    },
+    {
+        "id": 60048,
+        "name": "Vila Novo São Lucas"
+    },
+    {
+        "id": 3585,
+        "name": "Vila Oeste"
+    },
+    {
+        "id": 60424,
+        "name": "Vila Ouro Minas"
+    },
+    {
+        "id": 3587,
+        "name": "Vila Paris"
+    },
+    {
+        "id": 61906,
+        "name": "Vila Petrópolis,(Barreiro)"
+    },
+    {
+        "id": -13904,
+        "name": "Vila Pinho"
+    },
+    {
+        "id": 3589,
+        "name": "Vila Pinho Vale do Jatobá,(Barreiro)"
+    },
+    {
+        "id": 59690,
+        "name": "Vila Real II"
+    },
+    {
+        "id": 54728,
+        "name": "Vila Rica"
+    },
+    {
+        "id": 3591,
+        "name": "Vila Santa Branca,(Venda Nova)"
+    },
+    {
+        "id": 61666,
+        "name": "Vila Santa Mônica,(Venda Nova)"
+    },
+    {
+        "id": 58823,
+        "name": "Vila Santo Antônio Barroquinha"
+    },
+    {
+        "id": 3600,
+        "name": "Vila São José"
+    },
+    {
+        "id": 59685,
+        "name": "Vila São Paulo"
+    },
+    {
+        "id": 62465,
+        "name": "Vila São Rafael"
+    },
+    {
+        "id": 54174,
+        "name": "Vila Sumaré"
+    },
+    {
+        "id": 52952,
+        "name": "Vila Tirol Barreiro"
+    },
+    {
+        "id": 59659,
+        "name": "Vila Trinta e Um de Março"
+    },
+    {
+        "id": 57365,
+        "name": "Vila União"
+    },
+    {
+        "id": 60036,
+        "name": "Vila Vista Alegre"
+    },
+    {
+        "id": 51781,
+        "name": "Vila Zilah Spósito"
+    },
+    {
+        "id": 55353,
+        "name": "Virgínia"
+    },
+    {
+        "id": 3606,
+        "name": "Vista Alegre"
+    },
+    {
+        "id": 33478,
+        "name": "Vista do Sol"
+    },
+    {
+        "id": 34140,
+        "name": "Vitória"
+    },
+    {
+        "id": 31076,
+        "name": "Vitória da Conquista,(Barreiro)"
+    },
+    {
+        "id": 3434,
+        "name": "Xodó Marize"
+    },
+    {
+        "id": -3768,
+        "name": "Zona Rural"
+    }
+]

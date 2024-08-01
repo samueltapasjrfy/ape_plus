@@ -1,0 +1,75 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environment
+venv/
+ENV/
+env/
+venv.bak/
+venv.bak/
+.Python
+
+# Editor directories and files
+.vscode/
+.idea/
+*.swp
+*~
+*.sublime-project
+*.sublime-workspace
+
+# Jupyter Notebook files
+.ipynb_checkpoints
+
+# Pytest cache
+.cache
+.pytest_cache
+
+# Test coverage reports
+.coverage
+htmlcov/
+.tox/
+.nox/
+
+# Django stuff:
+*.log
+*.pot
+*.pyc
+*.pyo
+.local/
+db.sqlite3
+media
+
+# Flask stuff:
+instance/
+.webassets-cache
+
+# mypy
+.mypy_cache/
+
+# Data files
+*.dat
+*.csv
+
+# JetBrains IDE
+*.idea/

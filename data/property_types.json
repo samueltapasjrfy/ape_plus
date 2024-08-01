@@ -1,0 +1,33 @@
+[
+    {
+        "id": 12,
+        "label": "Apartamento",
+        "category": "Residencial",
+        "supports_bedrooms": true
+    },
+    {
+        "id": 13,
+        "label": "Casa",
+        "category": "Residencial",
+        "supports_bedrooms": true
+    },
+    {
+        "id": 29,
+        "label": "Casa de Condomínio",
+        "category": "Residencial",
+        "supports_bedrooms": true
+    },
+    {
+        "id": 14,
+        "label": "Cobertura",
+        "category": "Residencial",
+        "supports_bedrooms": true
+    },
+    {
+        "id": 16,
+        "label": "Flat",
+        "category": "Residencial",
+        "supports_bedrooms": true
+    }
+    
+]

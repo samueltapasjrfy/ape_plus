@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Imóvel</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px 40px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+        h1 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+        }
+        button:disabled {
+            background-color: #ddd;
+            cursor: not-allowed;
+        }
+        #message {
+            margin-top: 20px;
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Cadastrar Imóvel</h1>
+        <div class="form-group">
+            <label for="url">URL do Imóvel:</label>
+            <input type="text" id="url" name="url" placeholder="Cole a URL do imóvel aqui">
+        </div>
+        <button id="submit-button" onclick="submitForm()">Cadastrar</button>
+        <div id="message"></div>
+    </div>
+
+    <script>
+        function submitForm() {
+            const url = document.getElementById('url').value;
+            const submitButton = document.getElementById('submit-button');
+            const messageDiv = document.getElementById('message');
+            
+            if (!url) {
+                alert("Por favor, insira a URL do imóvel.");
+                return;
+            }
+
+            submitButton.disabled = true;
+            messageDiv.innerHTML = "Processando...";
+
+            fetch('/cadastrar-imovel', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ url: url })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status_code === 200) {
+                    messageDiv.innerHTML = "Imóvel cadastrado com sucesso!";
+                    setTimeout(() => {
+                        window.location.reload();
+                    }, 2000);
+                } else {
+                    messageDiv.innerHTML = "Erro ao cadastrar imóvel. Tente novamente.";
+                    submitButton.disabled = false;
+                }
+            })
+            .catch(error => {
+                messageDiv.innerHTML = "Erro ao cadastrar imóvel. Tente novamente.";
+                submitButton.disabled = false;
+            });
+        }
+    </script>
+</body>
+</html>
