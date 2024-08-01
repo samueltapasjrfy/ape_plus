@@ -15,7 +15,7 @@ app = Flask(__name__)
 def login_and_get_cookies(email, senha):
     login_url = "https://app.jetimob.com/"
     with sync_playwright() as p:
-        browser = p.chromium.launch(headless=False, args=["--disable-gpu"])
+        browser = p.chromium.launch(headless=True, args=["--disable-gpu"])
         page = browser.new_page()
         
         page.goto(login_url, timeout=90000)
