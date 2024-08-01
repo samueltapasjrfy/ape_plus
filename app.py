@@ -70,12 +70,13 @@ def extract_data(url, cookies, property_types):
     cookies_dict = {cookie['name']: cookie['value'] for cookie in cookies}
     
     with sync_playwright() as p:
-        browser = p.chromium.launch(headless=False)
+        browser = p.chromium.launch(headless=True, args=["--disable-gpu"])
         page = browser.new_page()
+
+        page.goto(url, timeout=90000)
+        page.set_default_timeout(90000)
         
-        page.goto(url)
-        
-        page.wait_for_load_state('networkidle')
+        page.wait_for_load_state('networkidle', timeout=90000)
 
         images = []
         picture_tags = page.query_selector_all("ul.carousel-photos--wrapper li.carousel-photos--item picture source[type='image/webp']")
