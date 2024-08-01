@@ -26,6 +26,8 @@ def login_and_get_cookies(email, senha):
         
         page.wait_for_load_state('networkidle')
 
+        page.reload()
+
         cookies = page.context.cookies()
         browser.close()
         
