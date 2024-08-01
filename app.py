@@ -15,16 +15,17 @@ app = Flask(__name__)
 def login_and_get_cookies(email, senha):
     login_url = "https://app.jetimob.com/"
     with sync_playwright() as p:
-        browser = p.chromium.launch(headless=False)
+        browser = p.chromium.launch(headless=True, args=["--disable-gpu"])
         page = browser.new_page()
         
-        page.goto(login_url)
-        
+        page.goto(login_url, timeout=90000)
+        page.set_default_timeout(90000)
+
         page.fill('input[placeholder="exemplo@email.com"]', email)
         page.fill('input[placeholder="Digite sua senha"]', senha)
         page.click('button[type="submit"]')
         
-        page.wait_for_load_state('networkidle')
+        page.wait_for_load_state('networkidle', timeout=90000)
 
         cookies = page.context.cookies()
         browser.close()
