@@ -15,7 +15,7 @@ app = Flask(__name__)
 def login_and_get_cookies(email, senha):
     login_url = "https://app.jetimob.com/"
     with sync_playwright() as p:
-        browser = p.chromium.launch(headless=True)
+        browser = p.chromium.launch(headless=False)
         page = browser.new_page()
         
         page.goto(login_url)
@@ -25,8 +25,6 @@ def login_and_get_cookies(email, senha):
         page.click('button[type="submit"]')
         
         page.wait_for_load_state('networkidle')
-
-        page.reload()
 
         cookies = page.context.cookies()
         browser.close()
@@ -71,7 +69,7 @@ def extract_data(url, cookies, property_types):
     cookies_dict = {cookie['name']: cookie['value'] for cookie in cookies}
     
     with sync_playwright() as p:
-        browser = p.chromium.launch(headless=True)
+        browser = p.chromium.launch(headless=False)
         page = browser.new_page()
         
         page.goto(url)
