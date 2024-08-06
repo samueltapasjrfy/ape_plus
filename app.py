@@ -9,6 +9,7 @@ import re
 import os
 from datetime import datetime, timezone
 import random
+from fuzzywuzzy import fuzz
 
 app = Flask(__name__)
 
@@ -30,19 +31,16 @@ def login_and_get_cookies(email, senha):
 
             print("Credenciais preenchidas e botão de login clicado")
 
-            # Tentar esperar o estado de 'networkidle'
             try:
-                page.wait_for_load_state('networkidle', timeout=90000)
+                page.wait_for_load_state('networkidle', timeout=20000)
                 print("Página após login carregada")
             except PlaywrightTimeoutError:
                 print("Tempo esgotado ao esperar pelo estado 'networkidle'. Tentando carregar manualmente.")
 
-            # Recarregar a página para garantir que os cookies foram configurados
             page.reload()
             page.wait_for_load_state('load', timeout=90000)
             print("Página recarregada e totalmente carregada")
 
-            # Obter cookies após recarregar
             cookies = page.context.cookies()
             print("Cookies obtidos:", cookies)
         except PlaywrightTimeoutError as e:
@@ -90,17 +88,30 @@ def map_property_type(description, property_types):
             return property_type['id']
     return 12
 
-def extract_data(url, cookies, property_types):
+def load_facilities():
+    with open('./data/facilities.json', 'r', encoding='utf-8') as f:
+        facilities = json.load(f)
+    return facilities
+
+def find_facilities(amenities, description, facilities):
+    found_facilities = set()
+    for facility in facilities:
+        for amenity in amenities:
+            if fuzz.partial_ratio(facility['name'].lower(), amenity.lower()) > 80:
+                found_facilities.add(facility['facility_id'])
+        if fuzz.partial_ratio(facility['name'].lower(), description.lower()) > 80:
+            found_facilities.add(facility['facility_id'])
+    return list(found_facilities)
+
+def extract_data(url, cookies, property_types, facilities):
     cookies_dict = {cookie['name']: cookie['value'] for cookie in cookies}
     
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=False, args=["--disable-gpu"])
         context = browser.new_context()
-
-        # Configurar os cookies no contexto do navegador
         context.add_cookies(cookies)
-        
         page = context.new_page()
+
         try:
             page.goto(url, timeout=200000)
             page.set_default_timeout(200000)
@@ -114,7 +125,6 @@ def extract_data(url, cookies, property_types):
                 page.wait_for_load_state('load', timeout=200000)
                 print("Página recarregada e totalmente carregada")
                 
-            # Extrair imagens
             images = []
             picture_tags = page.query_selector_all("ul.carousel-photos--wrapper li.carousel-photos--item picture source[type='image/webp']")
             for picture in picture_tags:
@@ -136,11 +146,9 @@ def extract_data(url, cookies, property_types):
                 else:
                     img.save(img_path, format='JPEG')
             
-            # Analisar conteúdo da página
             content = page.content()
             soup = BeautifulSoup(content, 'html.parser')
             
-            # Extrair dados de scripts JSON
             scripts = soup.find_all('script', type='application/ld+json')
             breadcrumb_data = None
             product_data = None
@@ -162,7 +170,6 @@ def extract_data(url, cookies, property_types):
             descricao = product_data.get("description", None)
             preco = product_data.get("offers", {}).get("price", None)
             
-            # Extrair dados adicionais
             business_type_tag = soup.find('p', id='business-type-info')
             business_type = business_type_tag.text.strip() if business_type_tag else None
             
@@ -184,8 +191,14 @@ def extract_data(url, cookies, property_types):
             
             address_info_tag = soup.find('p', {'data-testid': 'address-info-value'})
             address_info = address_info_tag.text.strip() if address_info_tag else None
+
+             # Extrair meta title e meta description
+            meta_title_tag = soup.find('meta', {'property': 'og:title'}) or soup.find('meta', {'name': 'og:title'})
+            meta_description_tag = soup.find('meta', {'property': 'og:description'}) or soup.find('meta', {'name': 'description'})
             
-            # Extrair amenidades
+            meta_title = meta_title_tag['content'] if meta_title_tag else nome
+            meta_description = meta_description_tag['content'] if meta_description_tag else descricao
+            
             area = 0
             quartos = 0
             banheiros = 0
@@ -212,19 +225,61 @@ def extract_data(url, cookies, property_types):
                 elif "Varanda" in text:
                     varanda = text
 
+            numeros_por_extenso = {
+                'uma': 1, 'um': 1,
+                'duas': 2, 'dois': 2,
+                'três': 3, 'tres': 3,
+                'quatro': 4,
+                'cinco': 5,
+                'seis': 6,
+                'sete': 7,
+                'oito': 8,
+                'nove': 9,
+                'dez': 10
+            }
+
+            def extrair_numero(texto):
+                # Tenta extrair um número numérico
+                numero_match = re.search(r'\d+', texto)
+                if numero_match:
+                    return int(numero_match.group())
+                # Tenta extrair um número por extenso
+                for palavra, numero in numeros_por_extenso.items():
+                    if palavra in texto:
+                        return numero
+                return None
+
             if vagas == 0 or suites == 0:
                 descricao_lower = descricao.lower()
-                vagas_match = re.search(r'\d+\s*vagas?', descricao_lower) or re.search(r'uma\s*vaga', descricao_lower)
-                suites_match = re.search(r'\d+\s*suites?', descricao_lower) or re.search(r'uma\s*suíte', descricao_lower)
+                vagas_match = re.search(r'(\d+|\w+)\s*vagas?', descricao_lower) or re.search(r'uma\s*vaga', descricao_lower)
+                suites_match = re.search(r'(\d+|\w+)\s*suites?', descricao_lower) or re.search(r'uma\s*suíte', descricao_lower)
+                
                 if vagas_match:
-                    vagas = int(re.search(r'\d+', vagas_match.group()).group())
+                    vagas_extracted = extrair_numero(vagas_match.group())
+                    if vagas_extracted is not None:
+                        vagas = vagas_extracted
+                
                 if suites_match:
-                    suites = int(re.search(r'\d+', suites_match.group()).group())
+                    suites_extracted = extrair_numero(suites_match.group())
+                    if suites_extracted is not None:
+                        suites = suites_extracted
+
+            # if vagas == 0 or suites == 0:
+            #     descricao_lower = descricao.lower()
+            #     vagas_match = re.search(r'\d+\s*vagas?', descricao_lower) or re.search(r'uma\s*vaga', descricao_lower)
+            #     suites_match = re.search(r'\d+\s*suites?', descricao_lower) or re.search(r'uma\s*suíte', descricao_lower)
+            #     if vagas_match:
+            #         vagas = int(re.search(r'\d+', vagas_match.group()).group())
+            #     if suites_match:
+            #         suites = int(re.search(r'\d+', suites_match.group()).group())
             
             created_at_tag = soup.find('span', class_='description__created-at')
             created_at = created_at_tag.text.strip() if created_at_tag else "N/A"
             
             property_type_id = map_property_type(descricao, property_types)
+
+            # Encontre as facilities correspondentes
+            facilities_ids = find_facilities(amenities, descricao, facilities)
 
             return {
                 "localidade": localidade,
@@ -246,7 +301,10 @@ def extract_data(url, cookies, property_types):
                 "images": images,
                 "created_at": created_at,
                 "endereco": address_info,
-                "type": property_type_id
+                "meta_title": meta_title[:70],
+                "meta_description": meta_description[:150],
+                "type": property_type_id,
+                "facilities_ids": facilities_ids
             }
 
         except PlaywrightTimeoutError as e:
@@ -370,7 +428,9 @@ def cadastrar_imovel():
         with open('./data/property_types.json', 'r', encoding='utf-8') as f:
             property_types = json.load(f)
 
-        data = extract_data(url, cookies, property_types)
+        facilities = load_facilities()
+
+        data = extract_data(url, cookies, property_types, facilities)
 
         endereco_regex = re.compile(r'^(.*?)(?:, (\d+))?(?: - (.*?))?, (.*?)(?: - (.*))?$')
 
@@ -384,10 +444,6 @@ def cadastrar_imovel():
             rua = "Av. Olegário Maciel"
             numero = str(random.randint(0, 1000))
             neighborhood = "3420"
-
-        #rua = match.group(1) if match and match.group(1) != None else "Av. Olegário Maciel"
-        #numero = match.group(2) if match and match.group(2) != None else str(random.randint(0, 1000))
-        #neighborhood = match.group(3) if match and match.group(3) != None else "3420"
 
         with open('./data/neighborhoods.json', 'r', encoding='utf-8') as f:
             neighborhoods = json.load(f)
@@ -463,10 +519,7 @@ def cadastrar_imovel():
             "bedrooms": int(data['quartos']),
             "bathrooms": int(data['banheiros']),
             "position": None,
-            "facilities": [
-                19,
-                30
-            ],
+            "facilities": data['facilities_ids'],
             "facilitiesGroups": [],
             "floor_types": [],
             "solar_orientations": [],
@@ -486,9 +539,9 @@ def cadastrar_imovel():
             "neighborhood": neighborhood_id,
             "number": numero,
             "title": data['nome'],
-            "observation_external": data['descricao'][:150],
-            "meta_title": data['nome'][:70],
-            "meta_description": data['descricao'][:150],
+            "observation_external": data['descricao'],
+            "meta_title": data['meta_title'],
+            "meta_description": data['meta_description'],
             "observation_internal": observation_internal,
             "person_owners": [
                 {
@@ -573,8 +626,6 @@ def cadastrar_imovel():
         
         return response, 200
     
-        
-
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 

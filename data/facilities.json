@@ -1,0 +1,330 @@
+[
+    {
+        "facility_id": 114,
+        "name": "Acessibilidade para PCD"
+    },
+    {
+        "facility_id": 179,
+        "name": "Adega"
+    },
+    {
+        "facility_id": 76,
+        "name": "Alarme"
+    },
+    {
+        "facility_id": 182,
+        "name": "Antena TV"
+    },
+    {
+        "facility_id": 139,
+        "name": "Aquecedor"
+    },
+    {
+        "facility_id": 6,
+        "name": "Aquecimento a g\u00e1s"
+    },
+    {
+        "facility_id": 183,
+        "name": "Aquecimento central"
+    },
+    {
+        "facility_id": 84,
+        "name": "Ar condicionado"
+    },
+    {
+        "facility_id": 8,
+        "name": "\u00c1rea de servi\u00e7o"
+    },
+    {
+        "facility_id": 68,
+        "name": "Arm\u00e1rio cozinha"
+    },
+    {
+        "facility_id": 62,
+        "name": "Arm\u00e1rio embutido"
+    },
+    {
+        "facility_id": 25,
+        "name": "Banheira hidromassagem"
+    },
+    {
+        "facility_id": 53,
+        "name": "Banheiro auxiliar"
+    },
+    {
+        "facility_id": 10,
+        "name": "Banheiro social"
+    },
+    {
+        "facility_id": 186,
+        "name": "Bar"
+    },
+    {
+        "facility_id": 193,
+        "name": "Central telef\u00f4nica"
+    },
+    {
+        "facility_id": 12,
+        "name": "Churrasqueira"
+    },
+    {
+        "facility_id": 21,
+        "name": "Circuito TV"
+    },
+    {
+        "facility_id": 14,
+        "name": "Closet"
+    },
+    {
+        "facility_id": 196,
+        "name": "Coleta seletiva de lixo"
+    },
+    {
+        "facility_id": 197,
+        "name": "Copa"
+    },
+    {
+        "facility_id": 85,
+        "name": "Cozinha"
+    },
+    {
+        "facility_id": 15,
+        "name": "Cozinha americana"
+    },
+    {
+        "facility_id": 198,
+        "name": "Cozinha gourmet"
+    },
+    {
+        "facility_id": 199,
+        "name": "Cozinha grande"
+    },
+    {
+        "facility_id": 203,
+        "name": "Deck"
+    },
+    {
+        "facility_id": 16,
+        "name": "Dep. empregada"
+    },
+    {
+        "facility_id": 18,
+        "name": "Despensa"
+    },
+    {
+        "facility_id": 19,
+        "name": "Elevador"
+    },
+    {
+        "facility_id": 55,
+        "name": "Escrit\u00f3rio"
+    },
+    {
+        "facility_id": 51,
+        "name": "Espa\u00e7o gourmet"
+    },
+    {
+        "facility_id": 46,
+        "name": "Espera para split"
+    },
+    {
+        "facility_id": 45,
+        "name": "Estar social"
+    },
+    {
+        "facility_id": 156,
+        "name": "Fechadura digital"
+    },
+    {
+        "facility_id": 140,
+        "name": "Ferro passar"
+    },
+    {
+        "facility_id": 67,
+        "name": "Fog\u00e3o"
+    },
+    {
+        "facility_id": 212,
+        "name": "Forno de pizza"
+    },
+    {
+        "facility_id": 120,
+        "name": "Freezer"
+    },
+    {
+        "facility_id": 23,
+        "name": "G\u00e1s individual"
+    },
+    {
+        "facility_id": 119,
+        "name": "Geladeira"
+    },
+    {
+        "facility_id": 26,
+        "name": "Hidr\u00f4metro individual"
+    },
+    {
+        "facility_id": 176,
+        "name": "Hobby box"
+    },
+    {
+        "facility_id": 124,
+        "name": "Home office"
+    },
+    {
+        "facility_id": 80,
+        "name": "Interfone"
+    },
+    {
+        "facility_id": 82,
+        "name": "Internet"
+    },
+    {
+        "facility_id": 133,
+        "name": "Jacuzzi"
+    },
+    {
+        "facility_id": 219,
+        "name": "Janela grande"
+    },
+    {
+        "facility_id": 27,
+        "name": "Lareira"
+    },
+    {
+        "facility_id": 157,
+        "name": "Lareira a g\u00e1s (espera)"
+    },
+    {
+        "facility_id": 136,
+        "name": "Lava lou\u00e7as"
+    },
+    {
+        "facility_id": 54,
+        "name": "Lavabo"
+    },
+    {
+        "facility_id": 221,
+        "name": "Lavanderia"
+    },
+    {
+        "facility_id": 222,
+        "name": "Lumin\u00e1rias"
+    },
+    {
+        "facility_id": 65,
+        "name": "M\u00e1quina de lavar"
+    },
+    {
+        "facility_id": 29,
+        "name": "Mezanino"
+    },
+    {
+        "facility_id": 66,
+        "name": "Microondas"
+    },
+    {
+        "facility_id": 131,
+        "name": "M\u00f3veis planejados"
+    },
+    {
+        "facility_id": 177,
+        "name": "P\u00e9 direito elevado"
+    },
+    {
+        "facility_id": 116,
+        "name": "Permite festas"
+    },
+    {
+        "facility_id": 170,
+        "name": "Pet friendly"
+    },
+    {
+        "facility_id": 30,
+        "name": "Piscina"
+    },
+    {
+        "facility_id": 232,
+        "name": "Redario"
+    },
+    {
+        "facility_id": 234,
+        "name": "Resid\u00eancia inteligente"
+    },
+    {
+        "facility_id": 64,
+        "name": "Roupa de cama"
+    },
+    {
+        "facility_id": 63,
+        "name": "Roupa de mesa"
+    },
+    {
+        "facility_id": 38,
+        "name": "Sacada"
+    },
+    {
+        "facility_id": 237,
+        "name": "Sala de almo\u00e7o"
+    },
+    {
+        "facility_id": 91,
+        "name": "Sala de estar"
+    },
+    {
+        "facility_id": 92,
+        "name": "Sala de jantar"
+    },
+    {
+        "facility_id": 121,
+        "name": "TV"
+    },
+    {
+        "facility_id": 74,
+        "name": "TV a cabo"
+    },
+    {
+        "facility_id": 239,
+        "name": "Telefone"
+    },
+    {
+        "facility_id": 42,
+        "name": "Terra\u00e7o"
+    },
+    {
+        "facility_id": 135,
+        "name": "Utens\u00edlios churrasqueira"
+    },
+    {
+        "facility_id": 134,
+        "name": "Utens\u00edlios cozinha"
+    },
+    {
+        "facility_id": 43,
+        "name": "Varanda"
+    },
+    {
+        "facility_id": 240,
+        "name": "Varanda fechada com vidro"
+    },
+    {
+        "facility_id": 93,
+        "name": "Varanda gourmet"
+    },
+    {
+        "facility_id": 241,
+        "name": "Varanda integrada"
+    },
+    {
+        "facility_id": 242,
+        "name": "Varanda separada"
+    },
+    {
+        "facility_id": 138,
+        "name": "Ventilador"
+    },
+    {
+        "facility_id": 130,
+        "name": "Vista panor\u00e2mica"
+    }
+]
